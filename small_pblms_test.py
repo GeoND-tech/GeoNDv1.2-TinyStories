@@ -17,8 +17,7 @@ tokenizer = Tokenizer.from_file(tokenizer_file)
 # -----------------------------
 
 # load model
-#checkpoint = torch.load("10-epoch-3.171M-checkpoint-9.pt")
-checkpoint = torch.load("10-epoch-3.171M-checkpoint-2.pt")
+checkpoint = torch.load("3-epoch-2.908M-checkpoint-2.pt")
 hyperparameters = checkpoint['hyperparameters']
 model = NanoGPT_paraboloid(hyperparameters, device).to(device)
 model.load_state_dict(checkpoint['model'])
