@@ -8,4 +8,4 @@ numpy
 scipy
 scikit-learn
 torch==2.13.0
-geondptfree==2.13.0.1.2
+geondptfree==2.13.0.1.2rc2
