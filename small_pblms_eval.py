@@ -69,14 +69,14 @@ tokenized_data = dataset.map(lambda x: { "input_ids": [elem.ids for elem in toke
 tokenized_data = tokenized_data.with_format("torch")
 
 train_ids = tokenized_data['train'].remove_columns(['text'])
-train_ids = train_ids.shuffle().select(range(30000))
+train_ids = train_ids.select(range(30000))
 train_ids.set_format(type="torch", columns=["input_ids"])
 train_ids = train_ids.with_format("torch")
 train_ids = train_ids["input_ids"]
 train_dataset = TensorDataset(train_ids)
 
 val_ids = tokenized_data['validation'].remove_columns(['text'])
-val_ids = val_ids.shuffle().select(range(3000))
+val_ids = val_ids.select(range(3000))
 val_ids.set_format(type="torch", columns=["input_ids"])
 val_ids = val_ids.with_format("torch")
 val_ids   = val_ids["input_ids"]
