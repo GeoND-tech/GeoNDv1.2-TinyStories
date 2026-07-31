@@ -1,0 +1,2 @@
+geond.tech/models/v1.2/TinyStories/3-epoch-4.484M-checkpoint-2.pt
+geond.tech/models/v1.2/TinyStories/3-epoch-2.908M-checkpoint-2.pt
