@@ -28,7 +28,7 @@ wget -i models.txt -P models
 ## IMPORTANT
 Including any layer with paraboloid neurons requires a specialized optimizer. As of version 1.1, the GeoND Library includes an adaptation of Adam and AdamW:
 ```
-optimizer = gpt.GeoNDAdamW(model.parameters(), lr=learning_rate, betas=(0.9, 0.999, 0.999))
+optimizer = gpt.GeoNDAdamW(model.parameters(), lr=learning_rate, betas=(0.9, 0.999, 0.9999))
 ```
 
 ## Models
@@ -45,8 +45,8 @@ Run:
 python small_lms_train.py
 ```
 
-- ### NanoGPT_paraboloid
-A GPT model with a layer of paraboloid neurons replacing the first layer of the FeedForward component. We used 1/4 of the neurons of the original layer, in order to come up with a smaller model.
+- ### NanoGPT-paraboloidff
+A GPT model with a layer of paraboloid neurons replacing the entire FeedForward component of the transformer.
 
 In terms of code, first we import the Library:
 ```
@@ -65,31 +65,10 @@ Then we replace the original component:
       nn.Dropout(dropout)
     )
 ```
-By replacing the first hidden layer with a ```Paraboloid``` layer:
+By replacing the hidden layers with a ```ParaboloidBatched``` layer:
 ```
-    self.pb = gpt.Paraboloid(n_embed, n_hidden, lr_factor = 10., input_factor = 0.1, wd_factor = 0.01)
-    self.rl = nn.ReLU()
-    self.ln = nn.Linear(n_hidden, n_embed)
-    self.dr = nn.Dropout(dropout)
+    self.pb = gpt.ParaboloidBatched(n_hidden, n_embed, input_factor = 1., mom_factor = 0.7/0.9, wd_factor = 0.01, h_factor = 0.0001, p_factor = -0.01, output_factor = 0.001, grad_factor = 0.001, h_lr_factor = 1., p_lr_factor = 1.)
 ```
-Since ```Paraboloid``` does not handle 3D tensor inputs internally, we also have to update the forward function:
-```
-  def forward(self, x):
-   
-   x_shape = x.shape
-   x_reshaped = x.reshape(-1, x_shape[2])
-   out = self.pb(x_reshaped)
-   out = out.reshape(x_shape[0],x_shape[1],self.pb.output_features)
-   out = self.rl(out)
-   out = self.ln(out)
-   out = self.dr(out)
-```
-We also use 1/4 of the neurons here:
-```
-    #self.ffwd = FeedForward(n_embed, n_embed*4, dropout)
-    self.ffwd = FeedForward(n_embed, n_embed, dropout)
-```
-Note that the smaller model requires more epochs to reach similar loss function values, namely 10 instead of 3.
 
 #### Generate a story
 Download the pretrained model and run:
