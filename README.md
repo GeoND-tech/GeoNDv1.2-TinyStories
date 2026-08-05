@@ -6,7 +6,7 @@ This repository is meant as a proof of concept for how paraboloid neurons can be
 | ----------------- | -------------        | -------- | -------- | -------- |
 | ```NanoGPT```, baseline       | 3       | 4.484M | 0.4498577415943146 | 0.4255075752735138 |
 | ```NanoGPT```, reduced feed forward       | 3       | 2.908M | 0.47032883763313293 | 0.4420813024044037 |
-| *```NanoGPT```, paraboloid feed forward*        | *3*       | *2.908M* | *0.45499327778816223* | *0.4283764958381653* |
+| **```NanoGPT```, paraboloid feed forward**        | **3**       | **2.908M** | **0.45499327778816223** | **0.4283764958381653** |
 
 
 
