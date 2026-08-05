@@ -1,12 +1,11 @@
 ### Overview
 
-This repository is meant as a proof of concept for how paraboloid neurons can be used to achieve similar performance with significantly fewer parameters by replacing the entire feed-forward component of a transformer with a single paraboloid neuron layer.
+This repository is meant as a proof of concept for how paraboloid neurons can be used to achieve similar performance with significantly fewer parameters (35%) by replacing the entire feed-forward component of a transformer with a single paraboloid neuron layer.
 
 |   Model           | Epochs        | Parameters (Millions) | Training loss | Validation loss |
 | ----------------- | -------------        | -------- | -------- | -------- |
 | ```NanoGPT```, baseline       | 3       | 4.484M | 0.4498577415943146 | 0.4255075752735138 |
-| ```NanoGPT```, reduced feed forward       | 3       | 2.908M | 0.47032883763313293 | 0.4420813024044037 |
-| **```NanoGPT```, paraboloid feed forward**        | **3**       | **2.908M** | **0.45499327778816223** | **0.4283764958381653** |
+| ```NanoGPT```, paraboloid feed forward        | 3       | 2.908M | 0.45499327778816223 | 0.4283764958381653 |
 
 
 
@@ -105,6 +104,11 @@ python small_pblms_train.py
 
 ## Evaluation of pretrained models
 
+|   Model           | Epochs        | Parameters (Millions) | Training loss | Validation loss |
+| ----------------- | -------------        | -------- | -------- | -------- |
+| ```NanoGPT```, baseline       | 3       | 4.484M | 0.4498577415943146 | 0.4255075752735138 |
+| ```NanoGPT```, reduced feed forward       | 3       | 2.908M | 0.47032883763313293 | 0.4420813024044037 |
+| ```NanoGPT```, paraboloid feed forward        | 3       | 2.908M | 0.45499327778816223 | 0.4283764958381653 |
 
 ## References
 - Original repository: [https://github.com/broskicodes/slms](https://github.com/broskicodes/slms)
