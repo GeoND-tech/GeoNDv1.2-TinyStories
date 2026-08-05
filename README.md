@@ -1,6 +1,18 @@
+### Overview
+
+This repository is meant as a proof of concept for how paraboloid neurons can be used to achieve similar performance with significantly fewer parameters by replacing the entire feed-forward component of a transformer with a single paraboloid neuron layer.
+
+|   Model           | Epochs        | Parameters (Millions) | Training loss | Validation loss |
+| ----------------- | -------------        | -------- | -------- | -------- |
+| ```NanoGPT```, baseline       | 3       | 4.484M | 0.4498577415943146 | 0.4255075752735138 |
+| ```NanoGPT```, reduced feed forward       | 3       | 2.908M | 0.47032883763313293 | 0.4420813024044037 |
+| *```NanoGPT```, paraboloid feed forward*        | *3*       | *2.908M* | *0.45499327778816223* | *0.4283764958381653* |
+
+
+
 # Using paraboloid neurons to train NanoGPT models on TinyStories with PyTorch
 
-Paraboloid neuron demonstration of the [GeoND Library](https://geond.tech) for [PyTorch](http://pytorch.org/) on the TinyStories dataset. If you are interested in trying out the library on your own datasets, please refer to the ["How to use"](https://geond.tech/geond-docs/) section of the documentation. This repository uses Version 1.1 of the GeoND Library. You can find download instructions here: [https://geond.tech/download/](https://geond.tech/download/). Adapted from [https://github.com/broskicodes/slms](https://github.com/broskicodes/slms).
+Paraboloid neuron demonstration of the [GeoND Library](https://geond.tech) for [PyTorch](http://pytorch.org/) on the TinyStories dataset. If you are interested in trying out the library on your own datasets, please refer to the ["How to use"](https://geond.tech/geond-docs/) section of the documentation. This repository uses Version 1.2 of the GeoND Library. You can find download instructions here: [https://geond.tech/download/](https://geond.tech/download/). Adapted from [https://github.com/broskicodes/slms](https://github.com/broskicodes/slms).
 
 ## Requirements
 - Linux only.
@@ -11,7 +23,7 @@ pip install -r requirements.txt
 ```
 - (Optional) Download the pre-trained models by running:
 ```
-wget -i models.txt
+wget -i models.txt -P models
 ```
 
 ## IMPORTANT
@@ -92,13 +104,7 @@ python small_pblms_train.py
 ```
 
 ## Evaluation of pretrained models
-|   Model           | Epochs        | Parameters (Millions) | Training loss | Validation loss |
-| ----------------- | -------------        | -------- | -------- | -------- |
-| ```NanoGPT``` - baseline       | 3       | 4.484M | 0.4452368915081024 | 0.4511740207672119 |
-| ```NanoGPT_paraboloid```        | 10       | 3.171M | 0.4290921986103058 | 0.44785311818122864 |
 
-## Sample
-You can 100 sample generated stories by the baseline model and the 30% smaller paraboloid model in the files ```100stories.txt``` and ```100storiespb.txt```, respectively.
 
 ## References
 - Original repository: [https://github.com/broskicodes/slms](https://github.com/broskicodes/slms)
