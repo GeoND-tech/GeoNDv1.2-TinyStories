@@ -19,6 +19,10 @@ A paraboloid neuron is a second degree neuron that only involves twice as many p
 
 ![Decision boundaries](./decisionboundaries.png)
 
+The math equations behind them with the corresponding linear neuron equations are summarized below:
+
+![Paraboloid neuron cheat sheet](./PNCS.png)
+
 ## Requirements
 - Linux only.
 - Python 3.9+, use of a virtual environment recommended.
