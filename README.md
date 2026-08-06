@@ -4,8 +4,8 @@ This repository is meant as a proof of concept for how paraboloid neurons can be
 
 |   Model           | Epochs        | Parameters | Training loss | Validation loss | Batches/sec |
 | ----------------- | -------------        | -------- | -------- | -------- | -------- |
-| ```NanoGPT```, baseline       | 3       | 4.484 Millions | 0.4498577415943146 | 0.4255075752735138 | 11.6-11.9 |
-| ```NanoGPT```, paraboloid feed forward        | 3       | 2.908 Millions | 0.45499327778816223 | 0.4283764958381653 | *13.1-13.4 |
+| ```NanoGPT```, baseline       | 3       | 4.484 Million | 0.4498577415943146 | 0.4255075752735138 | 11.6-11.9 |
+| ```NanoGPT```, paraboloid feed forward        | 3       | **2.908** Million | 0.45499327778816223 | 0.4283764958381653 | *13.1-13.4 |
 
 *This speed is achieved by the proprietary library, the free library is **SIGNIFICANTLY SLOWER**.
 
@@ -15,7 +15,7 @@ Paraboloid neuron demonstration of the [GeoND Library](https://geond.tech) for [
 
 ## Paraboloid neurons
 
-Paraboloid neurons are a second degree neuron that only involves twice as many parameters as a linear neuron. This is achieved by using the definition of a paraboloid as the locus of points that are equidistant from a directrix hyperplane and a focal point. The decision boundary of a linear neuron is **w**<sup>T</sup>**x**=0, whereas for paraboloid neurons it is (**h**<sup>T</sup>**x**)<sup>2</sup> - ||**x**-**p**||<sub>2</sub><sup>2</sup>=0. These are illustrated below:
+A paraboloid neuron is a second degree neuron that only involves twice as many parameters as a linear neuron. This is achieved by using the definition of a paraboloid as the locus of points that are equidistant from a directrix hyperplane and a focal point. The decision boundary of a linear neuron is **w**<sup>T</sup>**x**=0 (**w** is the weight vector and **x** is the input point), whereas for a paraboloid neuron is (**h**<sup>T</sup>**x**)<sup>2</sup> - ||**x**-**p**||<sub>2</sub><sup>2</sup>=0 (**h** is the directrix and **p** is the focus). These are illustrated below:
 
 ![Decision boundaries](./decisionboundaries.png)
 
@@ -84,9 +84,9 @@ Into:
 
 |   Model           | Epochs        | Parameters | Training loss | Validation loss | Batches/sec |
 | ----------------- | -------------        | -------- | -------- | -------- | -------- |
-| ```NanoGPT```, baseline       | 3       | 4.484 Millions | 0.4498577415943146 | 0.4255075752735138 | 11.6-11.9 |
-| ```NanoGPT```, reduced feed forward       | 3       | 2.908 Millions | 0.47032883763313293 | 0.4420813024044037 |
-| ```NanoGPT```, paraboloid feed forward        | 3       | 2.908 Millions | 0.45499327778816223 | 0.4283764958381653 | *13.1-13.4 |
+| ```NanoGPT```, baseline       | 3       | 4.484 Million | 0.4498577415943146 | 0.4255075752735138 | 11.6-11.9 |
+| ```NanoGPT```, reduced feed forward       | 3       | 2.908 Million | 0.47032883763313293 | 0.4420813024044037 | 13.9 |
+| ```NanoGPT```, paraboloid feed forward        | 3       | 2.908 Million | **0.45499327778816223** | **0.4283764958381653** | *13.1-13.4 |
 
 *This speed is achieved by the proprietary library, the free library is **SIGNIFICANTLY SLOWER**.
 
