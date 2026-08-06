@@ -32,7 +32,7 @@ wget -i models.txt -P models
 ```
 
 ## IMPORTANT
-Including any layer with paraboloid neurons requires a specialized optimizer. As of version 1.1, the GeoND Library includes an adaptation of Adam and AdamW:
+Including any layer with paraboloid neurons requires a specialized optimizer. As of version 1.1, the GeoND Library includes an adaptation of Adam and AdamW and as of version 1.2 some previous issues have been fixed. In order to properly train a network that includes paraboloid neurons with Adam(W), we need to define:
 ```
 optimizer = gpt.GeoNDAdamW(model.parameters(), lr=learning_rate, betas=(0.9, 0.999, 0.9999))
 ```
