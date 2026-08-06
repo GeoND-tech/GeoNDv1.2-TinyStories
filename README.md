@@ -2,16 +2,16 @@
 
 This repository is meant as a proof of concept for how paraboloid neurons can be used to achieve similar performance with significantly fewer parameters (35%) by replacing the entire feed-forward component of a transformer with a single paraboloid neuron layer.
 
-|   Model           | Epochs        | Parameters | Training loss | Validation loss |
-| ----------------- | -------------        | -------- | -------- | -------- |
+|   Model           | Epochs        | Parameters | Training loss | Validation loss | Batches/sec |
+| ----------------- | -------------        | -------- | -------- | -------- | -------- |
 | ```NanoGPT```, baseline       | 3       | 4.484 Millions | 0.4498577415943146 | 0.4255075752735138 |
-| ```NanoGPT```, paraboloid feed forward        | 3       | 2.908 Millions | 0.45499327778816223 | 0.4283764958381653 |
+| ```NanoGPT```, paraboloid feed forward        | 3       | 2.908 Millions | 0.45499327778816223 | 0.4283764958381653 | *13.1-13.4 |
 
-
+*This speed is achieved by the proprietary library, the free library is **SIGNIFICANTLY SLOWER**.
 
 # Using paraboloid neurons to train NanoGPT models on TinyStories with PyTorch
 
-Paraboloid neuron demonstration of the [GeoND Library](https://geond.tech) for [PyTorch](http://pytorch.org/) on the TinyStories dataset. If you are interested in trying out the library on your own datasets, please refer to the ["How to use"](https://geond.tech/geond-docs/) section of the documentation. This repository uses Version 1.2 of the GeoND Library. You can find download instructions here: [https://geond.tech/download/](https://geond.tech/download/). Adapted from [https://github.com/broskicodes/slms](https://github.com/broskicodes/slms).
+Paraboloid neuron demonstration of the [GeoND Library](https://geond.tech) for [PyTorch](http://pytorch.org/) on the TinyStories dataset. If you are interested in trying out the library on your own datasets, please refer to the ["How to use"](https://geond.tech/geond-docs/) section of the documentation. This repository uses Version 1.2 of the GeoND Library. You can find download instructions for the free versions of the library here: [https://geond.tech/download/](https://geond.tech/download/). Adapted from [https://github.com/broskicodes/slms](https://github.com/broskicodes/slms).
 
 ## Paraboloid neurons
 
@@ -82,11 +82,13 @@ Into:
 
 ## Evaluation of pretrained models
 
-|   Model           | Epochs        | Parameters | Training loss | Validation loss |
-| ----------------- | -------------        | -------- | -------- | -------- |
+|   Model           | Epochs        | Parameters | Training loss | Validation loss | Batches/sec |
+| ----------------- | -------------        | -------- | -------- | -------- | -------- |
 | ```NanoGPT```, baseline       | 3       | 4.484 Millions | 0.4498577415943146 | 0.4255075752735138 |
 | ```NanoGPT```, reduced feed forward       | 3       | 2.908 Millions | 0.47032883763313293 | 0.4420813024044037 |
-| ```NanoGPT```, paraboloid feed forward        | 3       | 2.908 Millions | 0.45499327778816223 | 0.4283764958381653 |
+| ```NanoGPT```, paraboloid feed forward        | 3       | 2.908 Millions | 0.45499327778816223 | 0.4283764958381653 | *13.1-13.4 |
+
+*This speed is achieved by the proprietary library, the free library is **SIGNIFICANTLY SLOWER**.
 
 ## Training, testing and evaluation
 
