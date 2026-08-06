@@ -2,10 +2,10 @@
 
 This repository is meant as a proof of concept for how paraboloid neurons can be used to achieve similar performance with significantly fewer parameters (35%) by replacing the entire feed-forward component of a transformer with a single paraboloid neuron layer.
 
-|   Model           | Epochs        | Parameters (Millions) | Training loss | Validation loss |
+|   Model           | Epochs        | Parameters | Training loss | Validation loss |
 | ----------------- | -------------        | -------- | -------- | -------- |
-| ```NanoGPT```, baseline       | 3       | 4.484M | 0.4498577415943146 | 0.4255075752735138 |
-| ```NanoGPT```, paraboloid feed forward        | 3       | 2.908M | 0.45499327778816223 | 0.4283764958381653 |
+| ```NanoGPT```, baseline       | 3       | 4.484 Millions | 0.4498577415943146 | 0.4255075752735138 |
+| ```NanoGPT```, paraboloid feed forward        | 3       | 2.908 Millions | 0.45499327778816223 | 0.4283764958381653 |
 
 
 
@@ -82,17 +82,17 @@ Into:
 
 ## Evaluation of pretrained models
 
-|   Model           | Epochs        | Parameters (Millions) | Training loss | Validation loss |
+|   Model           | Epochs        | Parameters | Training loss | Validation loss |
 | ----------------- | -------------        | -------- | -------- | -------- |
-| ```NanoGPT```, baseline       | 3       | 4.484M | 0.4498577415943146 | 0.4255075752735138 |
-| ```NanoGPT```, reduced feed forward       | 3       | 2.908M | 0.47032883763313293 | 0.4420813024044037 |
-| ```NanoGPT```, paraboloid feed forward        | 3       | 2.908M | 0.45499327778816223 | 0.4283764958381653 |
+| ```NanoGPT```, baseline       | 3       | 4.484 Millions | 0.4498577415943146 | 0.4255075752735138 |
+| ```NanoGPT```, reduced feed forward       | 3       | 2.908 Millions | 0.47032883763313293 | 0.4420813024044037 |
+| ```NanoGPT```, paraboloid feed forward        | 3       | 2.908 Millions | 0.45499327778816223 | 0.4283764958381653 |
 
 ## Training, testing and evaluation
 
 First change directory to either ```baseline```, ```paraboloidff``` or ```reducedff``` depending on which model you want to work on then run:
 
-- ```python eval.py``` to evaluate the model.
+- ```python eval.py``` to evaluate the downloaded pretrained model.
 - ```python test.py``` to generate a short story using the model.
 - ```python train.py``` to train the model from scratch.
 
