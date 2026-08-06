@@ -17,7 +17,7 @@ Paraboloid neuron demonstration of the [GeoND Library](https://geond.tech) for [
 
 Paraboloid neurons are a second degree neuron that only involves twice as many parameters as a linear neuron. This is achieved by using the definition of a paraboloid as the locus of points that are equidistant from a directrix hyperplane and a focal point. The decision boundary of a linear neuron is **w**<sup>T</sup>**x**=0, whereas for paraboloid neurons it is (**h**<sup>T</sup>**x**)<sup>2</sup> - ||**x**-**p**||<sub>2</sub><sup>2</sup>=0. These are illustrated below:
 
-!(decisionboundaries.png)
+![Decision boundaries](decisionboundaries.png)
 
 ## Requirements
 - Linux only.
