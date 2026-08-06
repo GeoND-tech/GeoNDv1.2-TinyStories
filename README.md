@@ -88,6 +88,14 @@ Into:
 | ```NanoGPT```, reduced feed forward       | 3       | 2.908M | 0.47032883763313293 | 0.4420813024044037 |
 | ```NanoGPT```, paraboloid feed forward        | 3       | 2.908M | 0.45499327778816223 | 0.4283764958381653 |
 
+## Training, testing and evaluation
+
+First change directory to either ```baseline```, ```paraboloidff``` or ```reducedff``` depending on which model you want to work on then run:
+
+- ```python eval.py``` to evaluate the model.
+- ```python test.py``` to generate a short story using the model.
+- ```python train.py``` to train the model from scratch.
+
 ## References
 - Original repository: [https://github.com/broskicodes/slms](https://github.com/broskicodes/slms)
 - GeoND Library documentation: [https://geond.tech/geond-docs/](https://geond.tech/geond-docs/)
