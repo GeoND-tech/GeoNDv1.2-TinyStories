@@ -40,16 +40,7 @@ optimizer = gpt.GeoNDAdamW(model.parameters(), lr=learning_rate, betas=(0.9, 0.9
 ## Models
 - ### NanoGPT
 Our baseline GPT model.
-#### Generate a story
-Download the pretrained model and run:
-```
-python small_lms_test.py
-```
-#### Training from scratch
-Run:
-```
-python small_lms_train.py
-```
+
 
 - ### NanoGPT-paraboloidff
 A GPT model with a layer of paraboloid neurons replacing the entire FeedForward component of the transformer.
@@ -62,7 +53,7 @@ except ImportError:
     import geondptfree as gpt
 ```
 
-Then we replace the original component:
+Then we change the original FeedForward component:
 ```
     self.net = nn.Sequential(
       nn.Linear(n_embed, n_hidden),
@@ -76,16 +67,18 @@ By replacing the hidden layers with a ```ParaboloidBatched``` layer:
     self.pb = gpt.ParaboloidBatched(n_hidden, n_embed, input_factor = 1., mom_factor = 0.7/0.9, wd_factor = 0.01, h_factor = 0.0001, p_factor = -0.01, output_factor = 0.001, grad_factor = 0.001, h_lr_factor = 1., p_lr_factor = 1.)
 ```
 
-#### Generate a story
-Download the pretrained model and run:
+- ### NanoGPT-reducedff
+A GPT model that uses the original FeedForward architecture, but with the same number of parameters as the paraboloid neuron above.
+
+In terms of code, first we change :
 ```
-python small_pblms_test.py
+    self.ffwd = FeedForward(n_embed, n_embed*4, dropout)
 ```
-#### Training from scratch
-Run:
+Into:
 ```
-python small_pblms_train.py
+    self.ffwd = FeedForward(n_embed, n_embed, dropout)
 ```
+
 
 ## Evaluation of pretrained models
 
