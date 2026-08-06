@@ -74,7 +74,7 @@ By replacing the hidden layers with a ```ParaboloidBatched``` layer:
 - ### NanoGPT-reducedff
 A GPT model that uses the original FeedForward architecture, but with the same number of parameters as the paraboloid neuron above.
 
-In terms of code, first we change :
+In terms of code, we change :
 ```
     self.ffwd = FeedForward(n_embed, n_embed*4, dropout)
 ```
