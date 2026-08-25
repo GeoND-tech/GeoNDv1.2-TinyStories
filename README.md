@@ -96,7 +96,7 @@ A GPT model that completely omits the FeedForward component.
 | ```NanoGPT```, empty feed forward       | 3       | 2.381 Million | 0.4946628510951996  | 0.4654255211353302 | 14.9 |
 | ```NanoGPT```, reduced feed forward       | 3       | 2.908 Million | 0.47032883763313293 | 0.4420813024044037 | 13.9 |
 | ```NanoGPT```, baseline       | 3       | 4.484 Million | 0.4498577415943146 | 0.4255075752735138 | 11.6-11.9 |
-| ```NanoGPT```, paraboloid feed forward        | 3       | 2.908 Million | **0.45499327778816223** | **0.4283764958381653** | *13.1-13.4 |
+| ```NanoGPT```, paraboloid feed forward        | 3       | 2.908 Million | 0.45499327778816223 | 0.4283764958381653 | *13.1-13.4 |
 
 *This speed is achieved by the proprietary library, the free library is **SIGNIFICANTLY SLOWER**.
 
