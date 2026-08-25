@@ -84,7 +84,7 @@ Into:
 ```
 
 - ### NanoGPT-emptyff
-A GPT model that completely omits the FeedForward component.
+A GPT model that completely omits the FeedForward component. We included this model to measure the improvement of the training and validation loss as more parameters are added.
 
 
 
