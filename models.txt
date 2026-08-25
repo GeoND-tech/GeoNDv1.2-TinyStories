@@ -1,4 +1,4 @@
 geond.tech/models/v1.2/TinyStories/nanogpt-baseline.pt
 geond.tech/models/v1.2/TinyStories/nanogpt-paraboloidff.pt
 geond.tech/models/v1.2/TinyStories/nanogpt-reducedff.pt
-
+geond.tech/models/v1.2/TinyStories/nanogpt-emptyff.pt
