@@ -83,16 +83,32 @@ Into:
     self.ffwd = FeedForward(n_embed, n_embed, dropout)
 ```
 
+- ### NanoGPT-emptyff
+A GPT model that completely omits the FeedForward component.
+
+
+
 
 ## Evaluation of pretrained models
 
-|   Model           | Epochs        | Parameters | Training loss | Validation loss | Batches/sec |
+|   Model           | Epochs        | Parameters | Training loss | Validation loss | Batches/sec | 
 | ----------------- | -------------        | -------- | -------- | -------- | -------- |
-| ```NanoGPT```, baseline       | 3       | 4.484 Million | 0.4498577415943146 | 0.4255075752735138 | 11.6-11.9 |
+| ```NanoGPT```, empty feed forward       | 3       | 2.381 Million | 0.4946628510951996  | 0.4654255211353302 | 14.9 |
 | ```NanoGPT```, reduced feed forward       | 3       | 2.908 Million | 0.47032883763313293 | 0.4420813024044037 | 13.9 |
+| ```NanoGPT```, baseline       | 3       | 4.484 Million | 0.4498577415943146 | 0.4255075752735138 | 11.6-11.9 |
 | ```NanoGPT```, paraboloid feed forward        | 3       | 2.908 Million | **0.45499327778816223** | **0.4283764958381653** | *13.1-13.4 |
 
 *This speed is achieved by the proprietary library, the free library is **SIGNIFICANTLY SLOWER**.
+
+## Loss improvement per 100k additional parameters (bigger is better)
+
+|   Model           | Training | Validation |
+| ----------------- | -------- | -------- |
+| ```NanoGPT```, empty feed forward       | -- | -- | 
+| ```NanoGPT```, reduced feed forward      | 0,00461746 | 0,004429643 | 
+| ```NanoGPT```, baseline       | 0,002130533 | 0,001898143 | 
+| ```NanoGPT```, paraboloid feed forward   | **0,007527433** | **0,007030176** | 
+
 
 ## Training, testing and evaluation
 
